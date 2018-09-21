@@ -1,0 +1,35 @@
+swagger: "2.0"
+info:
+  description: This is the swagger file that goes with our server code
+  version: "1.0.0"
+  title: Swagger REST Article
+consumes:
+  - "application/json"
+produces:
+  - "application/json"
+
+basePath: "/api"
+
+# Paths supported by the server application
+paths: 
+  /model:
+    post:
+      operationId: model.create
+      tags:
+        - model
+      summary: Create a new set of lyrics with the model
+      description: Create a new set of lyrics with the model
+      parameters:
+        - name: sample
+          in: body
+          description: Starting sample used to create
+          required: True
+          schema:
+            type: object
+            properties:
+              sample:
+                type: string
+                description: Starting sample used to create lyrics
+      responses:
+        201:
+          description: Successfully made a prediction
