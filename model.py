@@ -11,9 +11,9 @@ import sys
 def deprocessPrediction(ix_to_char, prediction):
     index = np.argmax(prediction)
     char = ix_to_char[index]
-    
+
     return char
-    
+
 def preprocessInput(char_to_ix, input, n_chars_set):
     chars = list(input)
     n_sample_chars = len(chars)
@@ -25,7 +25,7 @@ def preprocessInput(char_to_ix, input, n_chars_set):
         preprocessed_input[0][ci][index] = 1
 
     return preprocessed_input
-    
+
 def sample_predictions(preds, temperature=0.5):
     # helper function to sample an index from a probability array
     preds = np.asarray(preds).astype('float64')
@@ -35,23 +35,21 @@ def sample_predictions(preds, temperature=0.5):
     probas = np.random.multinomial(1, preds, 1)
     return probas
 
-# Functions 
+# Functions
 def generateCharacterConverters(chars):
     char_to_ix = { ch:i for i,ch in enumerate(sorted(chars)) }
     ix_to_char = { i:ch for i,ch in enumerate(sorted(chars)) }
-    
+
     return char_to_ix, ix_to_char
 
 def create(param):
     """
-    This function creates a new person in the people structure
-    based on the passed in person data
+    This function creates a song lyrics based on the passed in
+    param data
     :param n_chars:  Number of characters to generate
     :param sample:  Starting sample used to create lyrics
-    :return:        201 on success, 406 on person exists
+    :return:        201 on success
     """
-    
-    print("PRINT THIS GLOBAL:".format(g))
 
     # inputs
     model_dir = "model.hdf5"
@@ -66,13 +64,13 @@ def create(param):
     # # verify that a gpu is listed
     # K.tensorflow_backend._get_available_gpus()
 
-    # Load Data    
+    # Load Data
     with open(charset_file, 'r') as csv_file:
         reader = csv.reader(csv_file, delimiter=",")
         charset = []
         for row in reader:
             charset.append(row[0])
-            
+
     # Generate Charset Dictionaries
     char_to_ix, ix_to_char = generateCharacterConverters(charset)
     n_charset = len(charset)
