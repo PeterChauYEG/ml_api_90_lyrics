@@ -1,5 +1,5 @@
 from datetime import datetime
-from flask import make_response
+from flask import g, make_response
 import numpy as np
 import csv
 from keras import backend as K
@@ -50,6 +50,8 @@ def create(param):
     :param sample:  Starting sample used to create lyrics
     :return:        201 on success, 406 on person exists
     """
+    
+    print("PRINT THIS GLOBAL:".format(g))
 
     # inputs
     model_dir = "model.hdf5"
@@ -58,8 +60,11 @@ def create(param):
     # to use GPU
     os.environ["CUDA_VISIBLE_DEVICES"]="0"
 
-    # verify that a gpu is listed
-    K.tensorflow_backend._get_available_gpus()
+    # make sure there are no sessions
+    K.clear_session()
+
+    # # verify that a gpu is listed
+    # K.tensorflow_backend._get_available_gpus()
 
     # Load Data    
     with open(charset_file, 'r') as csv_file:
