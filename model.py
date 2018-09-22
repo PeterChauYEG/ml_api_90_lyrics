@@ -1,5 +1,5 @@
 from datetime import datetime
-from flask import g, make_response
+from flask import g, jsonify, make_response
 import numpy as np
 import csv
 from keras import backend as K
@@ -92,4 +92,4 @@ def create(param):
         preprocessed_input[0][-1] = sampled_prediction
         result += next_char
 
-    return make_response(result, 201)
+    return jsonify(result)
