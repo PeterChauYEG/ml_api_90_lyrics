@@ -20,13 +20,16 @@ paths:
       summary: Create a new set of lyrics with the model
       description: Create a new set of lyrics with the model
       parameters:
-        - name: sample
+        - name: param
           in: body
           description: Starting sample used to create
           required: True
           schema:
             type: object
             properties:
+              n_chars:
+                type: integer
+                description: Number of characters to generate
               sample:
                 type: string
                 description: Starting sample used to create lyrics
