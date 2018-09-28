@@ -1,0 +1,11 @@
+{
+  "name": "ml_api_90_lyrics",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/PeterChauYEG/ml_api_90_lyrics.git",
+  "author": "PeterChauYEG <peter.chau.esq@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+      "start": "python server.py"
+  }
+}
