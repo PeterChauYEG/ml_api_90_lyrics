@@ -1,7 +1,0 @@
-name: ml_api
-dependencies:
-  - flask
-  - connexion
-  - numpy
-  - keras
-  - tensorflow

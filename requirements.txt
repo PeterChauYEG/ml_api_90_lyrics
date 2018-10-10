@@ -1,0 +1,5 @@
+connexion
+flask
+keras
+numpy
+tensorflow
