@@ -2,7 +2,7 @@
 This is a prototype api for generating song lyrics.
 
 ## Setup
-Check the `environment.yml` for the dependancies to install
+Check the `requirements.txt` for the dependancies to install
 
 ## Using this 
 Start it with: `$ python server.py`  
